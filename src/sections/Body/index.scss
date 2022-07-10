@@ -1,0 +1,56 @@
+@import "../../sass/variables";
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  overflow-x: auto;
+  &.opened-modal {
+    .modal-splash {
+      top: 0;
+      height: 100%;
+      padding-top: var(--header-height, 0);
+    }
+  }
+}
+#root {
+  min-width: rem(1024);
+}
+.main-content {
+  flex: auto;
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'holder main';
+  transform: translate3d(0,0,0);
+  overflow: hidden;
+  .holder {
+    grid-area: holder;
+  }
+  main {
+    grid-area: main;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 rem(20) rem(20);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    > .bread-crumbs-holder {
+      height: rem(54);
+      flex-shrink: 0;
+    }
+    .overlay-holder.t-horizontal {
+      top: 0;
+    }
+  }
+  .modal-splash {
+    --header-height: 0px;
+  }
+}
+.modal-body {
+  .key-value-h {
+    font-size: rem(14);
+  }
+}

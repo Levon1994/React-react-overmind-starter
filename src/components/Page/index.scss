@@ -1,0 +1,61 @@
+@import "../../../src/sass/variables";
+html {
+  &.mobile {
+    .bo-nav {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 2;
+      background: #fbfbfb;
+    }
+  }
+}
+.bo-nav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  height: rem(60);
+  flex-shrink: 0;
+  user-select: none;
+  overflow-x: auto;
+  > li {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    .popover-track {
+      margin-inline-start: rem(35);
+    }
+  }
+  @include mobile {
+    @include mobile-scroll;
+    margin: 0;
+    height: rem(54);
+    display: flex;
+    align-items: center;
+    > li {
+      &:nth-child(2) {
+        padding: 0 rem(20);
+      }
+    }
+  }
+}
+.nav-item {
+  height: 100%;
+  cursor: pointer;
+  transition: 400ms color;
+  display: flex;
+  align-items: center;
+  font: 600 rem(14) / rem(24) $f;
+  &:not(:first-child) {
+    margin-inline-start: rem(35);
+  }
+  .icon {
+    margin-inline-start: rem(5);
+  }
+  @include hover-active {
+    color: c(hero);
+  }
+}
+.bo-submenu {
+  min-width: rem(180);
+}
